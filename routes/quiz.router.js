@@ -31,15 +31,27 @@ router
     }
   });
 router.route("/git-quiz").get(async (req, res) => {
-  const response = await Question.find({ quizName: "Git quiz" });
-  res.send(response);
+  try {
+    const response = await Question.find({ quizName: "Git quiz" });
+    res.send(response);
+  } catch (error) {
+    res.send(error);
+  }
 });
 router.route("/react-quiz").get(async (req, res) => {
-  const response = await Question.find({ quizName: "React quiz" });
-  res.send(response);
+  try {
+    const response = await Question.find({ quizName: "React quiz" });
+    res.send(response);
+  } catch (error) {
+    res.send(error);
+  }
 });
 router.route("/node-quiz").get(async (req, res) => {
-  const response = await Question.find({ quizName: "Node quiz" });
-  res.send(response);
+  try {
+    const response = await Question.find({ quizName: "Node quiz" });
+    res.send(response);
+  } catch (error) {
+    res.send(error);
+  }
 });
 module.exports = router;
