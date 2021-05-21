@@ -40,8 +40,8 @@ router.route("/git-quiz").get(async (req, res) => {
 });
 router.route("/react-quiz").get(async (req, res) => {
   try {
-    // const response = await Question.find({ quizName: "React quiz" });
-    res.json({ response: "ssss" });
+    const response = await Question.find({ quizName: "React quiz" });
+    res.json({ response: response });
   } catch (error) {
     res.send(error);
   }
