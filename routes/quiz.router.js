@@ -3,33 +3,32 @@ const { Question } = require("../model/question.model");
 
 const router = express.Router();
 
-router
-  .route("/")
+router.route("/");
 
-  .post(async (req, res) => {
-    try {
-      const Question = new Question({
-        quizName: "Node quiz",
+// .post(async (req, res) => {
+//   try {
+//     const Question = new Question({
+//       quizName: "Node quiz",
 
-        question: "Q.10) Command to show installed version of Node??",
-        plusPoint: 4,
-        negativePoint: 1,
+//       question: "Q.10) Command to show installed version of Node??",
+//       plusPoint: 4,
+//       negativePoint: 1,
 
-        rightOption: "$ node --version",
-        wrongOption: [
-          "$ npm --version",
-          "$ npm getVersion",
-          "$ node getVersion",
-        ],
-      });
+//       rightOption: "$ node --version",
+//       wrongOption: [
+//         "$ npm --version",
+//         "$ npm getVersion",
+//         "$ node getVersion",
+//       ],
+//     });
 
-      const result = await Question.save();
+//     const result = await Question.save();
 
-      res.send(result);
-    } catch (error) {
-      res.send(error);
-    }
-  });
+//     res.send(result);
+//   } catch (error) {
+//     res.send(error);
+//   }
+// });
 router.route("/git-quiz").get(async (req, res) => {
   try {
     const response = await Question.find({ quizName: "Git quiz" });
@@ -41,7 +40,7 @@ router.route("/git-quiz").get(async (req, res) => {
 router.route("/react-quiz").get(async (req, res) => {
   try {
     const response = await Question.find({ quizName: "React quiz" });
-    res.json({ response: response });
+    res.json(response);
   } catch (error) {
     res.send(error);
   }
