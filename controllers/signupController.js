@@ -12,7 +12,6 @@ const bcryptPasswordGenerator = (password, userName, email, res) => {
 };
 
 const saveUser = async (bcryptPassword, userName, email, res) => {
-  console.log(bcryptPassword, userName, email);
   try {
     const newUser = new userSignUp({
       userName: userName,
